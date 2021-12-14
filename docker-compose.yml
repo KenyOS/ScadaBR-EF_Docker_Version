@@ -24,7 +24,7 @@ services:
       PMA_HOST: database
       MYSQL_ROOT_PASSWORD: root
   scadabr:
-    container_name: scadabr
+    container_name: scadabr-ef
     image: kenyos/scadabr-ef:latest
     ports: 
       - "8080:8080"
