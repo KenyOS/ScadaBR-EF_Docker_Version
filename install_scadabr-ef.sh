@@ -58,7 +58,7 @@ function installTomcat {
 	echo "   * Copying Tomcat into installation folder"
 	cp "${CURRENT_FOLDER}/$tomcat" "$INSTALL_FOLDER/$tomcat"
 	
-	echo "   * Extratcting tomcat files..."
+	echo "   * Extracting tomcat files..."
 	tar xvf "$tomcat" >> /tmp/scadabrInstall.log && rm "$tomcat"
 	
 	echo "   * Renaming Tomcat folder"
@@ -76,6 +76,9 @@ function installTomcat {
 	#echo "   * Update Services..."
 	#systemctl daemon-reload
 	chmod +x /etc/init.d/tomcat9
+	echo "   * Configure Tomcat User..."
+	useradd -r -s /sbin/nologin tomcat
+	chown -R tomcat: "${INSTALL_FOLDER}/tomcat"
 	echo "   * Start tomcat9 service..."
 	/etc/init.d/tomcat9 start
 	echo "   * Check tomcat9 service status..."
