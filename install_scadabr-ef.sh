@@ -1,8 +1,7 @@
 #!/bin/bash
 # This script can install ScadaBR 1.2 and other ScadaBR
 # versions in Linux based systems
-set -e
-set -x
+
 
 if [[ -f /root/README ]]; then
    echo "ScadaBR already set up. Skipping initial configuration"
