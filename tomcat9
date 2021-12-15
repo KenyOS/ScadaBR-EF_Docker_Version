@@ -31,7 +31,7 @@ export JAVA_HOME=/opt/jdk8u302-b08-jre
 export PATH=$JAVA_HOME/bin:$PATH
  
 #CATALINA_HOME is the location of the bin files of Tomcat  
-export CATALINA_HOME=/opt/tomcat/tomcat
+export CATALINA_HOME=/opt/tomcat
  
 #CATALINA_BASE is the location of the configuration files of this instance of Tomcat
 export CATALINA_BASE=$CATALINA_HOME

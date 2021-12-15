@@ -46,7 +46,7 @@ function installJava {
 	ln -s *jre* jre || ln -s *jdk* jre
 
 	echo "   * Checking where Java package was installed.."
-	ls "$INSTALL_FOLDER/"
+	ls "$INSTALL_FOLDER/jdk8u302-b08-jre"
 	
 	echo "Done."
 	echo
