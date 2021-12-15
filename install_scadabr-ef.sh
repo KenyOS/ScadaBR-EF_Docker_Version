@@ -17,13 +17,7 @@ function checkFiles {
 
 
 function createInstallFolder {
-	if [[ -d $INSTALL_FOLDER ]]; then
-		# Install folder already exists. Is ScadaBR already installed?
-		echo "ERROR: Installation folder ($INSTALL_FOLDER) already exists. Aborting."
-		exit 1
-	else
-		mkdir -p "$INSTALL_FOLDER"
-	fi
+		mkdir -p /opt/ScadaBR
 }
 
 function installJava {
