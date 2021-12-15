@@ -2,7 +2,7 @@ FROM ubuntu:xenial
 
 RUN apt-get update && apt-get install -y software-properties-common
 RUN apt-get update
-RUN apt-get install -y wget vim zip unzip cron tomcat9
+RUN apt-get install -y wget vim zip unzip cron tomcat9-common tomcat9-admin
 COPY ScadaBR.war /root
 COPY install_scadabr-ef.sh /root
 COPY OpenJDK8U-jre_aarch64_linux_hotspot_8u302b08.tar.gz /root
