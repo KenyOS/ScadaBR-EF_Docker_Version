@@ -73,14 +73,12 @@ function installTomcat {
 
 	echo "   * Create Tomcat9 service..."
 	mv "${CURRENT_FOLDER}/tomcat9.service" "/etc/systemd/system"
-	echo "   * Update Services..."
-	systemctl daemon-reload
+	#echo "   * Update Services..."
+	#systemctl daemon-reload
 	echo "   * Start tomcat9 service..."
-	systemctl start tomcat9
+	service tomcat9 start
 	echo "   * Check tomcat9 service status..."
-	systemctl status tomcat
-	echo "   * Enable tomcat9 service to run on Start..."
-	systemctl enable tomcat
+	service tomcat9 status
 	
 	echo "Done."
 	echo

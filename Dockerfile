@@ -1,6 +1,6 @@
 FROM ubuntu:xenial
 
-RUN apt-get update && apt-get install -y software-properties-common systemd
+RUN apt-get update && apt-get install -y software-properties-common
 RUN apt-get update
 RUN apt-get install -y wget vim zip unzip cron
 COPY ScadaBR.war /root
