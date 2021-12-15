@@ -187,7 +187,7 @@ fi
 # Setting  variables...
 
 MACHINE_TYPE=$(uname -m)
-CURRENT_FOLDER=$(/root/)
+CURRENT_FOLDER=/root
 INSTALL_FOLDER=/opt/ScadaBR
 
 # Files
