@@ -44,6 +44,9 @@ function installJava {
 	
 	echo "   * Creating JRE symlink..."
 	ln -s *jre* jre || ln -s *jdk* jre
+
+	echo "   * Checking where Java package was installed.."
+	update-alternatives --list java
 	
 	echo "Done."
 	echo
