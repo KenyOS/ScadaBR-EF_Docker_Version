@@ -85,7 +85,8 @@ function installTomcat {
 	chown -R tomcat /opt/tomcat/webapps/ /opt/tomcat/work/ /opt/tomcat/temp/ /opt/tomcat/logs/
 	chown -R tomcat: "${INSTALL_FOLDER}/tomcat"
 	echo "   * Start tomcat9 service..."
-	/etc/init.d/tomcat9 start
+	systemctl start tomcat9
+	sleep 5
 	echo "   * Check tomcat9 service status..."
 	/etc/init.d/tomcat9 status
 	
