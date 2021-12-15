@@ -76,9 +76,9 @@ function installTomcat {
 	#echo "   * Update Services..."
 	#systemctl daemon-reload
 	echo "   * Start tomcat9 service..."
-	service tomcat9 start
+	/etc/init.d/tomcat9 start
 	echo "   * Check tomcat9 service status..."
-	service tomcat9 status
+	/etc/init.d/tomcat9 status
 	
 	echo "Done."
 	echo
