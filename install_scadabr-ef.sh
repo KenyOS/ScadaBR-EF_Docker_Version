@@ -72,7 +72,7 @@ function installTomcat {
 	chmod 755 -R tomcat/
 
 	echo "   * Create Tomcat9 service..."
-	mv "${CURRENT_FOLDER}/tomcat9.service" "/etc/systemd/system"
+	mv "${CURRENT_FOLDER}/tomcat9.service" "/etc/init.d"
 	#echo "   * Update Services..."
 	#systemctl daemon-reload
 	echo "   * Start tomcat9 service..."
