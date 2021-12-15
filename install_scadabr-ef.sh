@@ -223,7 +223,7 @@ case $MACHINE_TYPE in
 	;;
 esac
 
-checkFiles
+#checkFiles
 createInstallFolder
 
 if [[ "$1" != 'silent' ]]; then
