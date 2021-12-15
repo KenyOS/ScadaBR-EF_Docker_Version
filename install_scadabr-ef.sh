@@ -218,7 +218,7 @@ case $MACHINE_TYPE in
 esac
 
 #checkFiles
-#createInstallFolder
+createInstallFolder
 
 if [[ "$1" != 'silent' ]]; then
 	getTomcatSettings
