@@ -75,6 +75,7 @@ function installTomcat {
 	mv "${CURRENT_FOLDER}/tomcat9" "/etc/init.d"
 	#echo "   * Update Services..."
 	#systemctl daemon-reload
+	chmod +x /etc/init.d/tomcat9
 	echo "   * Start tomcat9 service..."
 	/etc/init.d/tomcat9 start
 	echo "   * Check tomcat9 service status..."
