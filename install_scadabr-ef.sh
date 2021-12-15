@@ -46,7 +46,7 @@ function installJava {
 	ln -s *jre* jre || ln -s *jdk* jre
 
 	echo "   * Checking where Java package was installed.."
-	update-alternatives --list java
+	which java  | xargs realpath
 	
 	echo "Done."
 	echo
