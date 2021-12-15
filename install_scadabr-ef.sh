@@ -187,7 +187,7 @@ fi
 # Setting  variables...
 
 MACHINE_TYPE=$(uname -m)
-CURRENT_FOLDER=$(pwd)
+CURRENT_FOLDER=$(/root/)
 INSTALL_FOLDER=/opt/ScadaBR
 
 # Files
@@ -224,7 +224,7 @@ case $MACHINE_TYPE in
 esac
 
 #checkFiles
-createInstallFolder
+#createInstallFolder
 
 if [[ "$1" != 'silent' ]]; then
 	getTomcatSettings
