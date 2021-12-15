@@ -72,7 +72,7 @@ function installTomcat {
 	chmod 755 -R tomcat/
 
 	echo "   * Create Tomcat9 service..."
-	mv "${CURRENT_FOLDER}/tomcar9.service" "$INSTALL_FOLDER/$tomcat"
+	mv "$tomcat9.service" "$INSTALL_FOLDER/$tomcat"
 	echo "   * Update Services..."
 	systemctl daemon-reload
 	echo "   * Start tomcat9 service..."
@@ -204,7 +204,7 @@ fi
 
 MACHINE_TYPE=$(uname -m)
 CURRENT_FOLDER=/root
-INSTALL_FOLDER=/opt/
+INSTALL_FOLDER=/opt
 
 # Files
 tomcat=apache-tomcat.tar.gz
