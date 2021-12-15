@@ -1,4 +1,4 @@
-FROM jrei/systemd-ubuntu
+FROM jrei/systemd-ubuntu:18.04
 
 RUN apt-get update && apt-get install -y software-properties-common
 RUN apt-get update
