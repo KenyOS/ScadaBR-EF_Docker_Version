@@ -1,5 +1,6 @@
 #!/bin/bash
-#
+#Java installed in /usr/lib/jvm/java 
+#tomcat installed in /usr/lib/tomcat/tomcat
 # description: Apache Tomcat init script
 # processname: tomcat  
 # chkconfig: 234 20 80  
@@ -24,16 +25,16 @@
 
  
 #Location of JAVA_HOME (bin files)
-export JAVA_HOME=/usr/java/latest
+export JAVA_HOME=/usr/lib/jvm/java
  
 #Add Java binary files to PATH
 export PATH=$JAVA_HOME/bin:$PATH
  
 #CATALINA_HOME is the location of the bin files of Tomcat  
-export CATALINA_HOME=/usr/share/tomcat  
+export CATALINA_HOME=/usr/lib/tomcat/tomcat
  
 #CATALINA_BASE is the location of the configuration files of this instance of Tomcat
-export CATALINA_BASE=/var/apphome/tomcat-node-1
+export CATALINA_BASE=$CATALINA_HOME
  
 #TOMCAT_USER is the default user of tomcat
 export TOMCAT_USER=tomcat
@@ -42,7 +43,7 @@ export TOMCAT_USER=tomcat
 TOMCAT_USAGE="Usage: $0 {\e[00;32mstart\e[00m|\e[00;31mstop\e[00m|\e[00;31mkill\e[00m|\e[00;32mstatus\e[00m|\e[00;31mrestart\e[00m}"
  
 #SHUTDOWN_WAIT is wait time in seconds for java proccess to stop
-SHUTDOWN_WAIT=20
+SHUTDOWN_WAIT=10
  
 tomcat_pid() {
         echo `ps -fe | grep $CATALINA_BASE | grep -v grep | tr -s " "|cut -d" " -f2`
