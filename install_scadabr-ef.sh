@@ -1,6 +1,15 @@
 #!/bin/bash
 # This script can install ScadaBR 1.2 and other ScadaBR
 # versions in Linux based systems
+set -e
+set -x
+
+if [[ -f /root/README ]]; then
+   echo "ScadaBR already set up. Skipping initial configuration"
+   service mysql start
+   service tomcat9 start
+   exit
+fi
 
 function checkFiles {
 	cd "$CURRENT_FOLDER"
@@ -41,28 +50,19 @@ function installJava {
 	echo
 }
 
-function installTomcat {
+function deployScadaBR {
 	echo
-	echo "Installing Tomcat:"
-
-	cd "$INSTALL_FOLDER"
-	
-	echo "   * Copying Tomcat into installation folder"
-	cp "${CURRENT_FOLDER}/$tomcat" "$INSTALL_FOLDER/$tomcat"
-	
-	echo "   * Extratcting tomcat files..."
-	tar xvf "$tomcat" >> /tmp/scadabrInstall.log && rm "$tomcat"
-	
-	echo "   * Renaming Tomcat folder"
-	mv apache-tomcat* tomcat
-	
-	echo "   * Copying ScadaBR into Tomcat..."
-	cp "${CURRENT_FOLDER}/${scadabr}" "${INSTALL_FOLDER}/tomcat/webapps/${scadabr}"
-	unzip "${CURRENT_FOLDER}/${scadabr}" -d "${INSTALL_FOLDER}/tomcat/webapps/ScadaBR/" >> /tmp/scadabrInstall.log
-	
-	echo "   * Setting permissions..."
-	chmod 755 -R tomcat/
-	
+	echo "stop Tomcat9"
+	service tomcat9 stop
+	echo "checking for old ScadaBR folder and delete.."
+	rm -rf /var/lib/tomcat7/webapps/ScadaBR*
+	echo "Done."
+	echo "Copying Scadabr files to Tomcat.."
+	cp /root/ScadaBR.war /var/lib/tomcat7/webapps/
+	service tomcat9 stop
+	mkdir /var/lib/tomcat9/bin
+	chown -R tomcat9.tomcat9 /var/lib/tomcat9/
+	gpasswd -a tomcat9 dialout
 	echo "Done."
 	echo
 }
@@ -150,13 +150,16 @@ function createStartupService {
 		# Install new crontab config
 		crontab /tmp/scadabr_crontab.tmp
 	fi
-	
+
 }
 
 function finishInstall {
 	echo
 	echo "ScadaBR was successfully installed."
 	echo 
+	echo "Start tomcat9.."
+	service tomcat9 start
+	echo "Done."
 	
 	if [[ "$1" != 'silent' ]]; then
 		echo "Launch ScadaBR now? (y/n)"
@@ -231,7 +234,7 @@ else
 fi
 
 installJava
-installTomcat
+deployScadaBR
 changeTomcatSettings
-createStartupService 2> /dev/null
+#createStartupService 2> /dev/null
 finishInstall
