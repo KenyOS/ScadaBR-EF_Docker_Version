@@ -81,7 +81,7 @@ function installTomcat {
 	useradd -s /bin/false -g tomcat -d /opt/tomcat tomcat
 	chgrp -R tomcat /opt/tomcat
 	chmod -R g+r /opt/tomcat/conf
-	sudo chmod g+x /opt/tomcat/conf
+	chmod g+x /opt/tomcat/conf
 	chown -R tomcat /opt/tomcat/webapps/ /opt/tomcat/work/ /opt/tomcat/temp/ /opt/tomcat/logs/
 	chown -R tomcat: "${INSTALL_FOLDER}/tomcat"
 	echo "   * Start tomcat9 service..."
