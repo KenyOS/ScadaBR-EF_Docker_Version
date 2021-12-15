@@ -13,5 +13,4 @@ COPY OpenJDK8U-jre_x64_linux_hotspot_8u302b08.tar.gz /root
 COPY openlogic-openjdk-jre-8u292-b10-linux-x32.tar.gz /root
 COPY libraryPath.class /root
 RUN ["chmod", "+x", "/root/install_scadabr-ef.sh"]
-RUN ["systemctl", "enable", "cron"]
 ENTRYPOINT ["/bin/sh", "-c", "/root/install_scadabr-ef.sh", "silent"]

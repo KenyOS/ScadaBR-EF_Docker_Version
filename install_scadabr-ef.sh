@@ -72,15 +72,13 @@ function installTomcat {
 	chmod 755 -R tomcat/
 
 	echo "   * Create Tomcat9 service..."
-	mv "tomcat9.service" "$INSTALL_FOLDER/$tomcat"
+	mv "${CURRENT_FOLDER}/$tomcat9.service" "$INSTALL_FOLDER/$tomcat"
 	echo "   * Update Services..."
 	systemctl daemon-reload
 	echo "   * Start tomcat9 service..."
 	systemctl start tomcat9
 	echo "   * Check tomcat9 service status..."
 	systemctl status tomcat
-	echo "   * Allow traffic for Tomcat service..."
-	ufw allow 8080
 	echo "   * Enable tomcat9 service to run on Start..."
 	systemctl enable tomcat
 	
