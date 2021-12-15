@@ -150,6 +150,7 @@ function createStartupService {
 		# Install new crontab config
 		crontab /tmp/scadabr_crontab.tmp
 	fi
+	
 }
 
 function finishInstall {
