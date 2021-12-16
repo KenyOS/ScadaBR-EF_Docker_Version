@@ -2,7 +2,7 @@ FROM ubuntu:xenial
 
 RUN apt-get update && apt-get install -y software-properties-common
 RUN apt-get update
-RUN apt-get install -y wget vim zip unzip cron mariadb
+RUN apt-get install -y wget vim zip unzip cron mariadb-server
 COPY ScadaBR.war /root
 COPY install_scadabr-ef.sh /root
 COPY systemctl.py /usr/bin/systemctl
