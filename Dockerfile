@@ -15,4 +15,3 @@ COPY openlogic-openjdk-jre-8u292-b10-linux-x32.tar.gz /root
 COPY libraryPath.class /root
 RUN ["chmod", "+x", "/root/install_scadabr-ef.sh"]
 ENTRYPOINT ["/bin/sh", "-c", "/root/install_scadabr-ef.sh", "silent"]
-RUN ["systemctl", "start", "tomcat9"]
