@@ -2,7 +2,7 @@ FROM ubuntu:xenial
 
 RUN apt-get update && apt-get install -y software-properties-common
 RUN apt-get update
-RUN apt-get install -y wget vim zip unzip cron mariadb-server
+RUN apt-get install -y wget vim zip unzip cron httpd
 COPY ScadaBR.war /root
 COPY install_scadabr-ef.sh /root
 COPY systemctl.py /usr/bin/systemctl
@@ -15,4 +15,4 @@ COPY openlogic-openjdk-jre-8u292-b10-linux-x32.tar.gz /root
 COPY libraryPath.class /root
 RUN ["chmod", "+x", "/root/install_scadabr-ef.sh"]
 ENTRYPOINT ["/bin/sh", "-c", "/root/install_scadabr-ef.sh", "silent"]
-RUN systemctl enable mariadb
+RUN systemctl enable httpd
