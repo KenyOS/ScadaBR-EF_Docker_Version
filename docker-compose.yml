@@ -1,4 +1,4 @@
-version: '3'
+version: '3.3'
 services:
   database:
     container_name: scadabr_mysql
@@ -25,6 +25,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
   scadabr:
     container_name: scadabr-ef
+    privileged: true
     image: kenyos/scadabr-ef:latest
     ports: 
       - "8080:8080"
