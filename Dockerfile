@@ -1,4 +1,4 @@
-FROM tomcat:9.0.53
+FROM tomcat:9.0.56-jdk8-openjdk
 LABEL maintainer="mail.kenyos.me"
 COPY context.xml /usr/local/tomcat/conf/context.xml
 COPY mysql-connector-java-5.1.49.jar /usr/local/tomcat/lib/mysql-connector-java-5.1.49.jar
