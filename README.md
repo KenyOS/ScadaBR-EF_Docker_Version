@@ -1,7 +1,5 @@
 # ScadaBR-EF Ver. 1.2
 
-https://hub.docker.com/r/kenyos/scadabr-ef
-
 Instruction:
 
 1- Install `docker-compose` on your system if you have no idea go here: https://github.com/docker/compose, usually you should be able to install using your package manager: 
