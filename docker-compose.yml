@@ -2,7 +2,7 @@ version: '3.3'
 services:
   database:
     container_name: scadabr_mysql
-    image: mysql/mysql-server:5.7
+    image: linuxserver/mariadb:latest
     ports:
       - "3306:3306"
     environment: 
@@ -17,7 +17,7 @@ services:
     container_name: scadabr_phpmyadmin
     depends_on:
       - database
-    image: phpmyadmin/phpmyadmin
+    image: linuxserver/phpmyadmin:latest
     ports:
       - '8081:80'
     environment:
